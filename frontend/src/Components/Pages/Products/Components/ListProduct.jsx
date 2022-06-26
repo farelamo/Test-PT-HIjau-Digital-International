@@ -29,13 +29,13 @@ const ListProduct = () => {
     }
 
     function handleEditForm(event) {
-        // let id = parseInt(event.target.value)
-        history.push(`/product/${event.target.value}`)
+        let id = parseInt(event.target.value)
+        history.push(`/product/${id}`)
     }
 
     return (
         <>
-            <h1 class=" text-purple-800 text-3xl font-semibold mr-2 mb-3 rounded dark:bg-purple-200 dark:text-purple-900 text-center">
+            <h1 className="mb-3 mr-2 text-3xl font-semibold text-center text-purple-800 rounded  dark:bg-purple-200 dark:text-purple-900">
                 List Product
             </h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

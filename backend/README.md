@@ -1,12 +1,11 @@
 ## Pre-requisite
 
-1. Install composer
+1. `.env.example` copy paste to `.env`
+
+2. Install composer
 ```
 composer install
 ```
-
-2. `.env.example` copy paste to `.env`
-
 
 3. Generate APP Key
 ```

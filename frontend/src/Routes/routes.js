@@ -64,7 +64,7 @@ function Routes() {
                 </AuthRoute>
                 <AuthRoute path={'/product/create'} exact>
                   <DashboardLayout>
-                    <IndexProduct/>
+                    <FormProduct/>
                   </DashboardLayout>
                 </AuthRoute>
                 <AuthRoute path={'/product/:id'} exact>

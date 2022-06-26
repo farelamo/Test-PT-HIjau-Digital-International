@@ -13,6 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::select('id', 'name', 'price')
+                    ->orderBy('id','desc')
                     ->paginate(5);
         return new ProductCollection($product);
     }

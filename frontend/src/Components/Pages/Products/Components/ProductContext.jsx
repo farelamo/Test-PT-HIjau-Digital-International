@@ -27,12 +27,12 @@ export const ProductProvider = props => {
     let history = useHistory()
 
     // Functions
-    const fetchData = async () => {
-        const { data } = await axios.get(`http://localhost:8000/api/product`, {
-            headers: {'Access-Control-Allow-Headers': `Bearer ${Cookies.get('token')}`}
-        })
+    axios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
 
-        let result = data.map(res => {
+    const fetchData = async () => {
+        const { data } = await axios.get(`http://localhost:8000/api/product`)
+
+        let result = data.data.map(res => {
             let { id, name, price } = res
             return { id, name, price }
         })
@@ -56,8 +56,6 @@ export const ProductProvider = props => {
             if (currentId === null) {
                 axios.post(`http://localhost:8000/api/product`, {
                     name, price
-                }, {
-                    headers: { 'Access-Control-Allow-Headers': `Bearer ${Cookies.get('token')}`}
                 })
                     .then(res => {
                         let data = res.data
@@ -72,8 +70,6 @@ export const ProductProvider = props => {
             } else {
                 axios.put(`http://localhost:8000/api/product/${currentId}`, {
                     name, price
-                }, {
-                    headers: { 'Access-Control-Allow-Headers': `Bearer ${Cookies.get('token')}` }
                 })
                     .then(() => {
                         setFetchStatus(true)
@@ -93,9 +89,7 @@ export const ProductProvider = props => {
 
     const handleDelete = (event) => {
         let id = parseInt(event.target.value)
-        axios.delete(`http://localhost:8000/api/product/${id}`, {
-            headers: { 'Access-Control-Allow-Headers': `Bearer ${Cookies.get('token')}` }
-        })
+        axios.delete(`http://localhost:8000/api/product/${id}`)
             .then(() => {
                 let newData = listProduct.filter((e) => {
                     return e.id !== id

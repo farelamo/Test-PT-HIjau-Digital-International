@@ -14,13 +14,12 @@ const FormProduct = () => {
     let { handleSubmit, handleChange, handleCancel } = handleFunctions
     
     let { id } = useParams()
-    console.log(id)
+    // console.log(id)
     
     useEffect(()=> {
             if(id != null) {
-                axios.get(`http://localhost:8000/api/product/${id}`, {
-                    headers: { 'Authorization': `Bearer ${Cookies.get('token')}` }
-                })
+                axios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
+                axios.get(`http://localhost:8000/api/product/${id}`)
                     .then(res => {
                         let data = res.data
                         setInput({ ...data })

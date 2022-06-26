@@ -28,14 +28,14 @@ const ListProduct = () => {
     }
 
     function handleEditForm(event){
-        let id = parseInt(event.target.value)
-        history.push(`product/${id}`)
+        // let id = parseInt(event.target.value)
+        history.push(`/product/${event.target.value}`)
     }
 
 
     return (
         <>
-            <button onClick={handleAddForm} className="title text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button onClick={handleAddForm} className="title text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Tambah Product
             </button>
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -55,6 +55,7 @@ const ListProduct = () => {
                     {display !== true && (
                         listProduct !== null && (
                             listProduct.map((val, index) => {
+                                console.log(val.id)
                                 return (
                                     <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <td>{index + 1}</td>

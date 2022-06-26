@@ -25,4 +25,4 @@ npm i js-cookie
 ```
 
 ## Run Project
-run on command `npm start`
+run on command `npm start` and go to `http://localhost:3000`

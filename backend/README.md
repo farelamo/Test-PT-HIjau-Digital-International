@@ -28,4 +28,4 @@ php artisan db:seed
 ```
 
 ## Run Project
-run on command `php artisan serve` 
+run on command `php artisan serve`

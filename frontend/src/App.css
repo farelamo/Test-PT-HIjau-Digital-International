@@ -1,0 +1,24 @@
+.container-hero {
+    position: relative;
+}
+
+.heading-hero {
+    position: absolute;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 7%;
+    margin-left: 150px;
+}
+
+.heading-hero h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.heading-hero small {
+    color: whitesmoke;
+}

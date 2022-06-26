@@ -1,5 +1,4 @@
 import axios from "axios"
-import Cookies from "js-cookie"
 import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { ProductContext } from "./ProductContext"
@@ -14,14 +13,12 @@ const FormProduct = () => {
     let { handleSubmit, handleChange, handleCancel } = handleFunctions
     
     let { id } = useParams()
-    // console.log(id)
     
     useEffect(()=> {
             if(id != null) {
-                axios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
                 axios.get(`http://localhost:8000/api/product/${id}`)
                     .then(res => {
-                        let data = res.data
+                        let data = res.data.data
                         setInput({ ...data })
                         setCurrentId(id)
                     })
@@ -30,7 +27,7 @@ const FormProduct = () => {
 
     return (
         <>
-            <h1 class=" text-purple-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 text-center">
+            <h1 className=" text-purple-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 text-center">
                 Form Product
             </h1>
 
